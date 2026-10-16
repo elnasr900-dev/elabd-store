@@ -4,7 +4,7 @@ const path = require('node:path');
 const crypto = require('node:crypto');
 
 const root = path.join(__dirname, 'public');
-const dataDir = process.env.DATA_DIR || path.join(__dirname, 'data');
+const dataDir = process.env.DATA_DIR || (process.env.VERCEL ? '/tmp' : path.join(__dirname, 'data'));
 const usersFile = path.join(dataDir, 'users.json');
 const raffleEntriesFile = path.join(dataDir, 'raffle-entries.json');
 const sessions = new Map();
