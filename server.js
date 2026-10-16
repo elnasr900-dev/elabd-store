@@ -154,4 +154,7 @@ const server = http.createServer(async (req, res) => {
   });
 });
 
-server.listen(port, () => console.log(`El Abd store running at http://localhost:${port}`));
+if (!process.env.VERCEL) {
+  server.listen(port, () => console.log(`El Abd store running at http://localhost:${port}`));
+}
+module.exports = server;
